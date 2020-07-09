@@ -20,6 +20,31 @@ export function getAppointmentsForDay(state, day) {
   return sol;
 }
 
+export function getInterviewersForDay(state, day) {
+  if (!state.days || !state.interviewers) {
+    return [];
+  }
+  
+  let interviewerList =[];
+  let sol = [];
+  for (const stateDay of state.days) {
+    if (stateDay.name === day) {
+      interviewerList = stateDay.interviewers;
+    }
+  }
+  
+  for (const interviewer of Object.values(state.interviewers)) {
+    if (interviewerList.includes(interviewer.id)) {
+      sol.push(interviewer);
+    }
+  }
+  return sol;
+}
+
+
+
+
+
 export function getInterview(state, interview) {
   if (!interview) return null;
   const interviewerId = interview.interviewer;
