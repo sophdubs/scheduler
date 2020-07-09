@@ -13,15 +13,17 @@ export default function Application(props) {
   const [state, setState] = useState({
     day: "Monday",
     days: [],
-    appointments: {}
+    appointments: {},
+    interviewers:{}
   });
 
   useEffect(() => {
     const fetchDays = axios.get('/api/days');
     const fetchAppointments = axios.get('/api/appointments');
-    Promise.all([fetchDays, fetchAppointments])
-      .then(([daysRes, aptRes]) => {
-        setState(prev => ({...prev, days: daysRes.data, appointments: aptRes.data}));
+    const fetchInterviewers = axios.get('/api/interviewers');
+    Promise.all([fetchDays, fetchAppointments, fetchInterviewers])
+      .then(([daysRes, aptRes, intRes]) => {
+        setState(prev => ({...prev, days: daysRes.data, appointments: aptRes.data, interviewers: intRes.data}));
       })
   }, []);
 
