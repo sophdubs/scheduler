@@ -66,7 +66,6 @@ export default function Application(props) {
       console.log(response);
       setState({...state, appointments})
     })
-    .catch(err => console.log(err));
   };
 
   const appointments = getAppointmentsForDay(state, state.day);
