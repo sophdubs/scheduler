@@ -8,9 +8,11 @@ import Show from "./Show";
 import Empty from "./Empty";
 import Form from "./Form";
 
+
 const EMPTY = "EMPTY";
 const SHOW = "SHOW";
 const CREATE = "CREATE"
+
 
 
 export default function Appointment(props) {
@@ -21,8 +23,9 @@ export default function Appointment(props) {
       student: name,
       interviewer
     }
-    props.bookInterview(props.id, interview);
-    transition(SHOW);
+    // transition(SAVE);
+    props.bookInterview(props.id, interview)
+      .then(() => transition(SHOW))
   }
 
 
