@@ -23,8 +23,21 @@ export default function useApplicationData() {
   const setDay = day => {
     setState({...state, day});
   }
-          
+  
+  const updateSpots = (id, increase) => {
+    state.days.forEach(day => {
+      if(day.appointments.includes(id)) {
+        if (increase) {
+          day.spots += 1;
+        } else {
+          day.spots -= 1;
+        }
+      }
+    })
+  }
+
   const bookInterview = (id, interview) => {
+    const isNew = state.appointments[id].interview === null;
     const appointment = {
         ...state.appointments[id],
         interview: {...interview}
@@ -37,6 +50,7 @@ export default function useApplicationData() {
     
     return axios.put(`/api/appointments/${id}`, {...appointment})
       .then(response => {
+        isNew && updateSpots(id, false);
         setState({...state, appointments});
       })
   };
@@ -54,6 +68,7 @@ export default function useApplicationData() {
   
     return axios.delete(`/api/appointments/${id}`)
       .then(response => {
+        updateSpots(id, true);
         setState({...state, appointments})
       })
   };
