@@ -3,6 +3,7 @@
 
 Fig 1. Animated Gif of the app in action. The appointment components are conditionally rendered using a custom state machine.
 
+![error-save](https://github.com/sophdubs/scheduler/blob/master/docs/error-save.png?raw=true)
 Fig 2. An error component is displayed when the sever failed to delete or save the interview. 
 
 ## Project Description
@@ -39,23 +40,12 @@ npm start
 ```
 
 ## Project Stack
-Front-End:
-  - React
-  - Axios
-  - JSX
-  - HTML
-  - SASS
 
-Back-End: 
-  - Express
-  - Node.js
-  - PostgreSQL
+__Front-End:__ React, Axios, JSX, HTML, SASS, JavaScript
 
-Testing: 
-  - Storybook
-  - Webpack Dev Server
-  - Jest
-  - Cypress
+__Back-End:__ Express, Node.js, PostgreSQL
+
+__Testing:__ Storybook, Webpack Dev Server, Jest, Cypress
 
 ## Dependencies
 - axios
