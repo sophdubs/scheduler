@@ -5,7 +5,7 @@ export function getAppointmentsForDay(state, day) {
   }
   
   let appt =[];
-  let sol = [];
+  const sol = [];
   for (const stateDay of state.days) {
     if (stateDay.name === day) {
       appt = stateDay.appointments;
@@ -26,7 +26,7 @@ export function getInterviewersForDay(state, day) {
   }
   
   let interviewerList =[];
-  let sol = [];
+  const sol = [];
   for (const stateDay of state.days) {
     if (stateDay.name === day) {
       interviewerList = stateDay.interviewers;
