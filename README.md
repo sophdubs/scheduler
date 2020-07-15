@@ -1,6 +1,6 @@
 # Interview Scheduler
 
-
+![scheduler-gif](https://github.com/sophdubs/scheduler/blob/master/docs/scheduler.gif?raw=true)
 Fig 1. Animated Gif of the app in action. The appointment components are conditionally rendered using a custom state machine.
 
 ![error-save](https://github.com/sophdubs/scheduler/blob/master/docs/error-save.png?raw=true)
