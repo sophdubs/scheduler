@@ -4,7 +4,7 @@
 Fig 1. Animated Gif of the app in action. The appointment components are conditionally rendered using a custom state machine.
 
 ![error-save](https://github.com/sophdubs/scheduler/blob/master/docs/error-save.png?raw=true)
-Fig 2. An error component is displayed when the sever failed to delete or save the interview. 
+Fig 2. An error component is displayed when the sever failed to save the interview. A similar error component is displayed in the case of a delete error.
 
 ## Project Description
 Interview Scheduler is a React SPA that allows users to book and cancel interviews built using the latest tools and technologies. The data is persisted by the API server using a PostreSQL database. The state is managed using custom and built in hooks. The client application communicates with an API server over HTTP using axios. Jest and Cypress tests are used throughout the development of the project. 
