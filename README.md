@@ -23,6 +23,21 @@ Interview Scheduler is a React SPA that allows users to book and cancel intervie
 - When the user presses the close button of the error they are returned to the Form or Show view (skipping Status and Confirm).
 - The application makes API requests to load and persist data. We do not lose data after a browser refresh.
 
+## Setup:
+The Scheduler client application and the Scheduler API server application must run concurrently; requests are proxied from the Webpack development server to the API server.
+
+1. Start by forking and cloning the scheduler-api server found [here](https://github.com/lighthouse-labs/scheduler-api)
+2. Follow the steps on the README to install and setup the database
+3. Fork and clone this repo
+4. Navigate to the root directory and install the project dependencies on your local machine using this command 
+``` 
+npm install 
+```
+5. Once you have the database setup and the scheduler-api server running, run the following command from the root directory of the project
+```
+npm start
+```
+
 ## Project Stack
 Front-End:
   - React
@@ -49,4 +64,3 @@ Testing:
 - react
 - react-dom
 - react-scripts
-
