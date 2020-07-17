@@ -1,6 +1,7 @@
 import axios from "axios";
 import {useState, useEffect} from 'react';
 
+// All of the apps state management has been factored out into this file
 export default function useApplicationData() {
 
   const [state, setState] = useState({
@@ -10,6 +11,7 @@ export default function useApplicationData() {
     interviewers:{}
   });
   
+  // Makes the axios calls once when page is rendered
   useEffect(() => {
     const fetchDays = axios.get('/api/days');
     const fetchAppointments = axios.get('/api/appointments');
@@ -19,11 +21,13 @@ export default function useApplicationData() {
         setState(prev => ({...prev, days: daysRes.data, appointments: aptRes.data, interviewers: intRes.data}));
       })
   }, []);
-        
+  
+  // Updates selected day 
   const setDay = day => {
     setState({...state, day});
   }
   
+  // Updates number of spots available (+1 or -1) when user books or deletes an interview
   const updateSpots = (id, increase) => {
     state.days.forEach(day => {
       if(day.appointments.includes(id)) {
@@ -36,6 +40,7 @@ export default function useApplicationData() {
     })
   }
 
+  // Adds the interview to the db and the state
   const bookInterview = (id, interview) => {
     const isNew = state.appointments[id].interview === null;
     const appointment = {
@@ -54,7 +59,8 @@ export default function useApplicationData() {
         setState({...state, appointments});
       })
   };
-                
+  
+  // Removes the interview from the db and the state
   const cancelInterview = (id) => {
     const appointment = {
         ...state.appointments[id],
@@ -73,6 +79,7 @@ export default function useApplicationData() {
       })
   };
 
+  // Returns these functions that can be used elsewhere in the app to manage the state
   return {
     state,
     setDay,
