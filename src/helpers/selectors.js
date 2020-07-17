@@ -1,4 +1,4 @@
-
+// Selects appointments for given day and returns them in an array
 export function getAppointmentsForDay(state, day) {
   if (!state.days || !state.appointments) {
     return [];
@@ -20,6 +20,7 @@ export function getAppointmentsForDay(state, day) {
   return sol;
 }
 
+// Selects interviewers for given day and returns them in an array
 export function getInterviewersForDay(state, day) {
   if (!state.days || !state.interviewers) {
     return [];
@@ -41,10 +42,7 @@ export function getInterviewersForDay(state, day) {
   return sol;
 }
 
-
-
-
-
+// Fetches the interviewer details and returns an interview object including the interviewer details
 export function getInterview(state, interview) {
   if (!interview) return null;
   const interviewerId = interview.interviewer;
